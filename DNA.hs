@@ -1,7 +1,9 @@
 import Data.List
-convertToArray :: [a] -> [a]
-convertToArray x = concat [ x ]
 
-groupingDNA :: Ord a => [a] -> [Int]
-groupingDNA (x:xs) = map length (group(sort(x:xs)))
+
+groupingDNA :: Ord a => [a] -> String
+groupingDNA [] = error "There is no length for empty list " 
+groupingDNA (x:xs) = concatMap(++" "  show (map length (group(sort(x:xs)))))
+
+
 
